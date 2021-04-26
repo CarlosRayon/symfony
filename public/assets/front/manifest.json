@@ -2,5 +2,21 @@
   "assets/front/front.css": "/assets/front/front.css",
   "assets/front/front.js": "/assets/front/front.js",
   "assets/front/runtime.js": "/assets/front/runtime.js",
-  "assets/front/vendors-node_modules_symfony_stimulus-bridge_dist_index_js-node_modules_core-js_modules_es_ob-bca252.js": "/assets/front/vendors-node_modules_symfony_stimulus-bridge_dist_index_js-node_modules_core-js_modules_es_ob-bca252.js"
+  "assets/front/vendors-node_modules_symfony_stimulus-bridge_dist_index_js-node_modules_core-js_modules_es_ob-8fccd6.css": "/assets/front/vendors-node_modules_symfony_stimulus-bridge_dist_index_js-node_modules_core-js_modules_es_ob-8fccd6.css",
+  "assets/front/vendors-node_modules_symfony_stimulus-bridge_dist_index_js-node_modules_core-js_modules_es_ob-8fccd6.js": "/assets/front/vendors-node_modules_symfony_stimulus-bridge_dist_index_js-node_modules_core-js_modules_es_ob-8fccd6.js",
+  "assets/front/images/fa-solid-900.svg": "/assets/front/images/fa-solid-900.13de59f1.svg",
+  "assets/front/images/fa-brands-400.svg": "/assets/front/images/fa-brands-400.216edb96.svg",
+  "assets/front/fonts/fa-solid-900.eot": "/assets/front/fonts/fa-solid-900.efbd5d20.eot",
+  "assets/front/fonts/fa-solid-900.ttf": "/assets/front/fonts/fa-solid-900.07c3313b.ttf",
+  "assets/front/images/fa-regular-400.svg": "/assets/front/images/fa-regular-400.19e27d34.svg",
+  "assets/front/fonts/fa-brands-400.eot": "/assets/front/fonts/fa-brands-400.89a52ae1.eot",
+  "assets/front/fonts/fa-brands-400.ttf": "/assets/front/fonts/fa-brands-400.9e138496.ttf",
+  "assets/front/fonts/fa-solid-900.woff": "/assets/front/fonts/fa-solid-900.c6ec0800.woff",
+  "assets/front/fonts/fa-brands-400.woff": "/assets/front/fonts/fa-brands-400.329a95a9.woff",
+  "assets/front/fonts/fa-solid-900.woff2": "/assets/front/fonts/fa-solid-900.ada6e6df.woff2",
+  "assets/front/fonts/fa-brands-400.woff2": "/assets/front/fonts/fa-brands-400.c1210e5e.woff2",
+  "assets/front/fonts/fa-regular-400.eot": "/assets/front/fonts/fa-regular-400.4079ae2d.eot",
+  "assets/front/fonts/fa-regular-400.ttf": "/assets/front/fonts/fa-regular-400.1017bce8.ttf",
+  "assets/front/fonts/fa-regular-400.woff": "/assets/front/fonts/fa-regular-400.36722648.woff",
+  "assets/front/fonts/fa-regular-400.woff2": "/assets/front/fonts/fa-regular-400.68c5af1f.woff2"
 }
