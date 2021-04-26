@@ -1,0 +1,14 @@
+{
+  "entrypoints": {
+    "back": {
+      "js": [
+        "/assets/back/runtime.js",
+        "/assets/back/vendors-node_modules_symfony_stimulus-bridge_dist_index_js-node_modules_core-js_modules_es_ob-bca252.js",
+        "/assets/back/back.js"
+      ],
+      "css": [
+        "/assets/back/back.css"
+      ]
+    }
+  }
+}

@@ -14,3 +14,9 @@ framework:
     #fragments: true
     php_errors:
         log: true
+    # assets:
+    #         packages:
+    #             front:
+    #                 json_manifest_path: '%kernel.project_dir%/public/assets/front/manifest.json'
+    #             back:
+    #                 json_manifest_path: '%kernel.project_dir%/public/assets/back/manifest.json'

@@ -1,0 +1,7 @@
+framework:
+   assets:
+        packages:
+            front:
+                json_manifest_path: '%kernel.project_dir%/public/assets/front/manifest.json'
+            office:
+                json_manifest_path: '%kernel.project_dir%/public/assets/office/manifest.json'
