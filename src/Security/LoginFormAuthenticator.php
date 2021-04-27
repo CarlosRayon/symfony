@@ -31,8 +31,12 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements P
     private $csrfTokenManager;
     private $passwordEncoder;
 
-    public function __construct(EntityManagerInterface $entityManager, UrlGeneratorInterface $urlGenerator, CsrfTokenManagerInterface $csrfTokenManager, UserPasswordEncoderInterface $passwordEncoder)
-    {
+    public function __construct(
+        EntityManagerInterface $entityManager,
+        UrlGeneratorInterface $urlGenerator,
+        CsrfTokenManagerInterface $csrfTokenManager,
+        UserPasswordEncoderInterface $passwordEncoder
+    ) {
         $this->entityManager = $entityManager;
         $this->urlGenerator = $urlGenerator;
         $this->csrfTokenManager = $csrfTokenManager;
@@ -92,12 +96,33 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements P
 
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, $providerKey)
     {
-        if ($targetPath = $this->getTargetPath($request->getSession(), $providerKey)) {
-            return new RedirectResponse($targetPath);
+        // if ($targetPath = $this->getTargetPath($request->getSession(), $providerKey)) {
+        //     return new RedirectResponse($targetPath);
+        // }
+
+        $roles = $token->getUser()->getRoles()[0];
+
+        /* FIXME  into a services */
+        $path = '';
+        switch ($roles) {
+            case User::ADMIN:
+                $path = 'back_administrator';
+                break;
+            case User::CUSTOMER:
+                $path = 'back_customer';
+                break;
+            case User::PROJECT_MANAGER:
+                $path = 'back_project_manager';
+                break;
+            case User::TECHNICIAN:
+                $path = 'back_technician';
+                break;
+            case User::COMMERCIAL:
+                $path = 'back_commercial';
+                break;
         }
 
-
-        return new RedirectResponse($this->urlGenerator->generate('landing'));
+        return new RedirectResponse($this->urlGenerator->generate($path));
     }
 
     protected function getLoginUrl()

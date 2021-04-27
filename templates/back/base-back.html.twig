@@ -13,12 +13,18 @@
 
 
     <body>
-        {% block body %}{% endblock %}
+        {% include "common/header.html.twig" %}
 
-        {% block javascripts %}
-            {{ encore_entry_script_tags('back', null, 'back') }}
-        {% endblock %}
-    </body>
+        <main class="py-5"> {% block body %}{% endblock %}
+            </main>
+
+            {% include "common/footer.html.twig" %}
+
+            {% block javascripts %}
+                {{ encore_entry_script_tags('back', null, 'back') }}
+            {% endblock %}
+
+        </body>
 
 
-</html>
+    </html>
