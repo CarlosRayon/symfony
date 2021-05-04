@@ -27,6 +27,7 @@ class AppFixtures extends Fixture
                 $ProductCharacteristics->setDescription($characteristics['description']);
                 $ProductCharacteristics->setPrice($characteristics['price']);
                 $ProductCharacteristics->setStatus($characteristics['status']);
+                $ProductCharacteristics->setProduct($newProduct);
                 $manager->persist($ProductCharacteristics);
             }
         }

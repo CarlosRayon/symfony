@@ -37,6 +37,11 @@ class ProductCharacteristics
      */
     private $status;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Product::class, inversedBy="ProductCharacteristics")
+     */
+    private $product;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -86,6 +91,18 @@ class ProductCharacteristics
     public function setStatus(bool $status): self
     {
         $this->status = $status;
+
+        return $this;
+    }
+
+    public function getProduct(): ?Product
+    {
+        return $this->product;
+    }
+
+    public function setProduct(?Product $product): self
+    {
+        $this->product = $product;
 
         return $this;
     }

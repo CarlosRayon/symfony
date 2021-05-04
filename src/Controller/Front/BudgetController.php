@@ -2,6 +2,7 @@
 
 namespace App\Controller\Front;
 
+use App\Entity\Product;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -12,6 +13,8 @@ class BudgetController extends AbstractController
      */
     public function index()
     {
-        return $this->render('front/budget.html.twig', []);
+        $products = $this->getDoctrine()->getRepository(Product::class)->findAll();
+        dump($products);
+        return $this->render('front/budget.html.twig', ['products' => $products]);
     }
 }
