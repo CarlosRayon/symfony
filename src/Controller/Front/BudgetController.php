@@ -6,6 +6,7 @@ use App\Entity\Budget;
 use DateTime;
 use App\Entity\User;
 use App\Entity\Product;
+use App\Entity\ProductCharacteristics;
 use App\Event\BudgetRequestEvent;
 use App\EventSubscriber\MailerSubscriber;
 use App\Service\EmailManagerService;
@@ -56,6 +57,10 @@ class BudgetController extends AbstractController
         $user->setAccessToken($token);
         $em->persist($user);
 
+        $characteristics = $this->getDoctrine()->getRepository(ProductCharacteristics::class)->findBy(['id' => $characteristics]);
+
+
+
         // $dispatcher = new EventDispatcher();
         // $dispatcher->addSubscriber($mailerSubscriber);
         // $budget = new BudgetRequestEvent($user);
@@ -63,12 +68,12 @@ class BudgetController extends AbstractController
 
         $budget = new Budget();
         $budget->getUser($user);
+        foreach ($characteristics as $characteristic) {
+        $budget->addProductCharacteristic($characteristic);
+        }
 
         $em->persist($budget);
-        $em->flush();
-
-
-
+        // $em->flush();
 
         // $emailManagerService->toCustomerAccessBackend($budget);
 

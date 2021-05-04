@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\BudgetRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -26,6 +28,16 @@ class Budget
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="budget")
      */
     private $user;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=ProductCharacteristics::class)
+     */
+    private $productCharacteristics;
+
+    public function __construct()
+    {
+        $this->productCharacteristics = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -52,6 +64,30 @@ class Budget
     public function setUser(?User $user): self
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|ProductCharacteristics[]
+     */
+    public function getProductCharacteristics(): Collection
+    {
+        return $this->productCharacteristics;
+    }
+
+    public function addProductCharacteristic(ProductCharacteristics $productCharacteristic): self
+    {
+        if (!$this->productCharacteristics->contains($productCharacteristic)) {
+            $this->productCharacteristics[] = $productCharacteristic;
+        }
+
+        return $this;
+    }
+
+    public function removeProductCharacteristic(ProductCharacteristics $productCharacteristic): self
+    {
+        $this->productCharacteristics->removeElement($productCharacteristic);
 
         return $this;
     }
