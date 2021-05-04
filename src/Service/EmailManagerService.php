@@ -5,6 +5,7 @@ namespace App\Service;
 use phpDocumentor\Reflection\Types\Boolean;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
+use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 
 class EmailManagerService
 {
@@ -25,8 +26,17 @@ class EmailManagerService
     public function toCustomerAccessBackend(): bool
     {
 
+        $email = (new TemplatedEmail())
+            ->from('proyectofinal@trainingit.com')
+            ->to('crayon@alares.es')
+            ->subject('toCustomerAccessBackend')
+           ->htmlTemplate('emails/toCustomerAccessBackend.html.twig');
+
+        $this->mailer->send($email);
+
         return true;
     }
+
 
     /**
      * Notice to the client that the budget request has been approved so the project has been created and information about the project is already sent
