@@ -10,7 +10,7 @@ class BudgetRequestEvent extends Event
 
     const EVENT_NAME  =  'notice.new.budget.request';
 
-    private $budget;
+    protected $budget;
 
     /**
      * Constructor

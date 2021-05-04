@@ -10,21 +10,15 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 class MailerSubscriber implements EventSubscriberInterface
 {
 
-    private $emailManagerService;
+    // private $emailManagerService;
 
-    public function __construct(EmailManagerService $emailManagerService)
-    {
-        $this->$emailManagerService = $emailManagerService;
-    }
+    // public function __construct(EmailManagerService $emailManagerService)
+    // {
+    //     $this->$emailManagerService = $emailManagerService;
+    // }
 
     public static function getSubscribedEvents(): array
     {
-
-        /* Example call event. */
-        // ... Create Budget $budget with request data
-        // $dispatcher	=	new	EventDispatcher();
-        // $budget = new BudgetRequestEvent($budget);
-        // $dispatcher->dispatch($budget,  BudgetRequestEvent::EVENT_NAME);
 
         return [
             BudgetRequestEvent::EVENT_NAME => 'onNoticeNewBudgetRequest',
@@ -41,14 +35,14 @@ class MailerSubscriber implements EventSubscriberInterface
     public function onNoticeNewBudgetRequest(BudgetRequestEvent $event)
     {
 
-        $isSend = $this->emailManagerService->toCommercialsNoticeNewBudgetRequest($event->getBudget());
-        //.... validate the return of function
+        // $isSend = $this->emailManagerService->toCustomerAccessBackend($event->getBudget());
+        // $this->emailManagerService->toCustomerAccessBackend();
+
     }
 
     public function onNoticeApprovedProject(ProjectApprovedEvent $event)
     {
-        $isSend = $this->emailManagerService->toProjectManagerNoticeApprovedProject($event->getProject());
-        $isSend = $this->emailManagerService->toCustomerNoticeApprovedProject($event->getProject());
-        //.... validate the return of function
+        $this->emailManagerService->toProjectManagerNoticeApprovedProject($event->getProject());
+        $this->emailManagerService->toCustomerNoticeApprovedProject($event->getProject());
     }
 }

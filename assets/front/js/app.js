@@ -3,4 +3,14 @@ const $ = require('jquery');
 // start the Stimulus application
 import '../../bootstrap';
 
-console.log('front');
+$('.product').on('click', function (e) {
+    /* Clean checkbox */
+    $('.checkboxes').prop('checked', false);
+
+    const targetId = e.target.id;
+    const characteristics = $(`[data-characteristics`);
+    characteristics.hide();
+
+    const characteristic = $(`[data-characteristics="${targetId}"]`);
+    characteristic.toggle();
+});

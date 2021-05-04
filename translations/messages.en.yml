@@ -11,7 +11,11 @@ landing:
         budget:
                 titleweb: 'Budget'
                 titlesection: 'Budgets page'
-                button: 'Send'
+                button: 'Request budget'
+        budgetsummary:
+                titleweb: 'Budget summary'
+                titlesection: 'Budgets summary'
+
     back:
         header:
             title: 'Service provider | Backend'

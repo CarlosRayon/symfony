@@ -11,7 +11,10 @@ landing:
         budget:
                 titleweb: Inicio
                 titlesection: 'Pagina de presupuestos'
-                button: 'Enviar'
+                button: 'Solicitar presupuesto'
+        budgetsummary:
+                titleweb: 'Resumen de presupuesto'
+                titlesection: 'Resumen de presupuesto'
     back:
         header:
             title: 'Proveedor de servicios | Backend'
