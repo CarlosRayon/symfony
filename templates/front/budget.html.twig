@@ -1,0 +1,21 @@
+{% extends 'front/base-front.html.twig' %}
+{% trans_default_domain 'messages' %}
+
+{% block title %}
+    {{'landing.front.budget.titleweb'|trans}}
+{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="row py-3">
+            <div class="col-12">
+                <h2 class="text-center">{{'landing.front.budget.titlesection'|trans}}</h2>
+            </div>
+            <div class="col-12 text-center my-5">
+                <a href="#" class="btn btn-primary btn-lg"  role="button">{{'landing.front.budget.button'|trans}}</a>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

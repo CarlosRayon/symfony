@@ -1,10 +1,36 @@
 {% extends 'front/base-front.html.twig' %}
+{% trans_default_domain 'messages' %}
 
-{% block title %}Hello LandingController!
+{% block title %}
+    {{'landing.front.body.titleweb'|trans}}
 {% endblock %}
 
 {% block body %}
 
-{%dump app.request.get('_route')%}
+    <div class="container">
+        <div class="row py-2">
+            <div class="col">
+                <h1 class="text-center">{{'landing.front.body.title'|trans}}</h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <img src="{{asset('img/banner.jpg')}}" alt="banner" class="img-fluid">
+            </div>
+            <div class="col-12 col-md-6 d-flex align-items-center ">
+                <h3>{{'landing.front.body.description'|trans}}</h3>
+            </div>
+        </div>
+
+        <div class="row py-3">
+            <div class="col-12">
+                <h2 class="text-center">{{'landing.front.body.titlesection'|trans}}</h2>
+            </div>
+            <div class="col-12 text-center my-5">
+                <a href="{{path('budget')}}" class="btn btn-primary btn-lg"  role="button">{{'landing.front.body.button'|trans}}</a>
+            </div>
+        </div>
+    </div>
 
 {% endblock %}

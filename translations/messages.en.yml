@@ -2,6 +2,16 @@ landing:
     front:
         header:
             title: 'Service provider'
+        body:
+            titleweb: Home
+            title: 'Software service provider'
+            description: 'Company dedicated to providing software services to private clients with the best quality in the market'
+            titlesection: 'Calculate your budget for free and without obligation'
+            button: 'Start'
+        budget:
+                titleweb: 'Budget'
+                titlesection: 'Budgets page'
+                button: 'Send'
     back:
         header:
             title: 'Service provider | Backend'

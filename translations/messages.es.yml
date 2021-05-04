@@ -2,9 +2,20 @@ landing:
     front:
         header:
             title: 'Proveedor de servicios'
+        body:
+                titleweb: Inicio
+                title: 'Proveedor de servicios de software'
+                description: 'Empresa dedicada a proveer servicios de software a clientes privados con la mejor calidad del mercado '
+                titlesection: 'Calcula tu presupuesto de forma gratuita y sin compromiso'
+                button: 'Empezar'
+        budget:
+                titleweb: Inicio
+                titlesection: 'Pagina de presupuestos'
+                button: 'Enviar'
     back:
         header:
             title: 'Proveedor de servicios | Backend'
+
 login:
     title: 'Por favor haz login'
     button: 'Entrar'
