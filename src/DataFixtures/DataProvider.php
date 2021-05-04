@@ -66,7 +66,5 @@ class DataProvider
             'roles' => [User::CUSTOMER]
         ],
 
-
-
     ];
 }

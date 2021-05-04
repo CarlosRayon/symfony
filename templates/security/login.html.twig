@@ -32,8 +32,8 @@
 
                     <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
-                    <button class="btn btn-lg btn-primary mt-4" type="submit">
-                        Sign in
+                    <button class="btn btn-lg btn-primary mt-4" type="submit" name="submit">
+                        {{'login.button'|trans}}
                     </button>
                 </form>
             </div>

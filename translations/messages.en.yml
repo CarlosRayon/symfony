@@ -8,6 +8,7 @@ landing:
 
 login:
     title: 'Please sign in'
+    button: 'Sign in'
 
 backend:
     admin:
