@@ -1,0 +1,21 @@
+landing:
+    front:
+        header:
+            title: 'Proveedor de servicios'
+    back:
+        header:
+            title: 'Proveedor de servicios | Backend'
+login:
+    title: 'Por favor haz login'
+
+backend:
+    admin:
+        title: 'Zona del administrador'
+    commercial:
+        title: 'Zona del comercial'
+    customer:
+        title: 'Zona del cliente'
+    projectmanager:
+        title: 'Zona del jefe de proyectos'
+    technician:
+        title: 'Zona del tecnico'

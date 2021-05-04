@@ -8,9 +8,9 @@
         </title>
         {% block stylesheets %}
             {{ encore_entry_link_tags('back', null, 'back') }}
+            {{ encore_entry_link_tags('common', null, 'common') }}
         {% endblock %}
     </head>
-
 
     <body>
         {% include "common/header.html.twig" %}

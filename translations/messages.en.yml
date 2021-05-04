@@ -1,0 +1,24 @@
+landing:
+    front:
+        header:
+            title: 'Service provider'
+    back:
+        header:
+            title: 'Service provider | Backend'
+
+login:
+    title: 'Please sign in'
+
+backend:
+    admin:
+        title: 'Administrator zone'
+    commercial:
+        title: 'Commercial zone'
+    customer:
+        title: 'Customer zone'
+    projectmanager:
+        title: 'Project manager zone'
+    technician:
+        title: 'Technicia zone'
+
+

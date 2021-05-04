@@ -9,6 +9,7 @@ webpack_encore:
     builds:
         front: "%kernel.project_dir%/public/assets/front"
         back: "%kernel.project_dir%/public/assets/back"
+        common: "%kernel.project_dir%/public/assets/common"
 
     # Set attributes that will be rendered on all script and link tags
     script_attributes:

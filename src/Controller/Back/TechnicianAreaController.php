@@ -12,7 +12,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 class TechnicianAreaController extends AbstractController
 {
     /**
-     * @Route("/back/technician", name="back_technician",methods={"GET"})
+     * @Route("/{_locale}/back/technician", name="back_technician", requirements={"_locale": "es|en"}, defaults={"_locale": "es"},methods={"GET"})
      */
     public function index()
     {

@@ -1,13 +1,20 @@
 {% extends 'back/base-back.html.twig' %}
+{% trans_default_domain 'messages' %}
 
 {% block title %}
-    Area del comercial
+    {{'backend.commercial.title'|trans}}
 {% endblock %}
 
 {% block body %}
 
 
-    <h1>Comercial</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1> {{'backend.commercial.title'|trans}}</h1>
+            </div>
+        </div>
+    </div>
 
 
 {% endblock %}

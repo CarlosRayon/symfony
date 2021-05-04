@@ -7,7 +7,6 @@ use App\Entity\User;
 class DataProvider
 {
 
-
     const USERS_DATA = [
 
         'admin' => [

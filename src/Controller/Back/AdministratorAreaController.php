@@ -12,11 +12,10 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 class AdministratorAreaController extends AbstractController
 {
     /**
-     * @Route("/back/administrator", name="back_administrator",methods={"GET"})
+     * @Route("/{_locale}/back/administrator", name="back_administrator",requirements={"_locale": "es|en"}, defaults={"_locale": "es"}, methods={"GET"})
      */
     public function index()
     {
-
 
         return $this->render('back/administrator/index.html.twig', []);
     }

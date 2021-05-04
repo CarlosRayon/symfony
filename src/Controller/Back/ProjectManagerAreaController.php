@@ -12,7 +12,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 class ProjectManagerAreaController extends AbstractController
 {
     /**
-     * @Route("/back/project_manager", name="back_project_manager",methods={"GET"})
+     * @Route("/{_locale}/back/project_manager", name="back_project_manager", requirements={"_locale": "es|en"}, defaults={"_locale": "es"}, methods={"GET"})
      */
     public function index()
     {

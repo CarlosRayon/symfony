@@ -6,4 +6,8 @@ Encore.reset();
 
 const back = require('./assets/back/webpack.config');
 
-module.exports = [front,back];
+Encore.reset();
+
+const common = require('./assets/common/webpack.config');
+
+module.exports = [front,back,common];

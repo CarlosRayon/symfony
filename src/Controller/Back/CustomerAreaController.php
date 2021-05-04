@@ -12,7 +12,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 class CustomerAreaController extends AbstractController
 {
     /**
-     * @Route("/back/customer", name="back_customer",methods={"GET"})
+     * @Route("/{_locale}/back/customer", name="back_customer",requirements={"_locale": "es|en"}, defaults={"_locale": "es"}, methods={"GET"})
      */
     public function index()
     {

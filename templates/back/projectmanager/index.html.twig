@@ -1,13 +1,20 @@
 {% extends 'back/base-back.html.twig' %}
+{% trans_default_domain 'messages' %}
 
 {% block title %}
-    Area del proyect manager
+    {{'backend.projectmanager.title'|trans}}
 {% endblock %}
 
 {% block body %}
 
 
-    <h1>Proyect manager</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1> {{'backend.projectmanager.title'|trans}}</h1>
+            </div>
+        </div>
+    </div>
 
 
 {% endblock %}

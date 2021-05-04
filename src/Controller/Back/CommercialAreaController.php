@@ -12,7 +12,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 class CommercialAreaController extends AbstractController
 {
     /**
-     * @Route("/back/commercial", name="back_commercial",methods={"GET"})
+     * @Route("/{_locale}/back/commercial", name="back_commercial",requirements={"_locale": "es|en"}, defaults={"_locale": "es"}, methods={"GET"})
      */
     public function index()
     {

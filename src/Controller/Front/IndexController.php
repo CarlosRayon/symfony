@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class IndexController extends AbstractController
 {
     /**
-     * @Route("/", name="landing",methods={"GET"})
+     * @Route("/{_locale}", name="landing", requirements={"_locale": "es|en"}, defaults={"_locale": "es"}, methods={"GET"})
      */
     public function index()
     {
