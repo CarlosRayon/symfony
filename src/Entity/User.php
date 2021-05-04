@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 use App\Entity\Traits\TimestampableTrait;
@@ -75,6 +77,16 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $access_token;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Budget::class, mappedBy="user")
+     */
+    private $budget;
+
+    public function __construct()
+    {
+        $this->budget = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -198,6 +210,36 @@ class User implements UserInterface
     public function setAccessToken(?string $access_token): self
     {
         $this->access_token = $access_token;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Budget[]
+     */
+    public function getBudget(): Collection
+    {
+        return $this->budget;
+    }
+
+    public function addBudget(Budget $budget): self
+    {
+        if (!$this->budget->contains($budget)) {
+            $this->budget[] = $budget;
+            $budget->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeBudget(Budget $budget): self
+    {
+        if ($this->budget->removeElement($budget)) {
+            // set the owning side to null (unless already changed)
+            if ($budget->getUser() === $this) {
+                $budget->setUser(null);
+            }
+        }
 
         return $this;
     }

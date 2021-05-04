@@ -2,6 +2,7 @@
 
 namespace App\Controller\Front;
 
+use App\Entity\Budget;
 use DateTime;
 use App\Entity\User;
 use App\Entity\Product;
@@ -54,14 +55,22 @@ class BudgetController extends AbstractController
         $user->setPassword($passwordEncoder->encodePassword($user, $token));
         $user->setAccessToken($token);
         $em->persist($user);
-        // $em->flush($user);
 
         // $dispatcher = new EventDispatcher();
         // $dispatcher->addSubscriber($mailerSubscriber);
         // $budget = new BudgetRequestEvent($user);
         // $dispatcher->dispatch($budget,  BudgetRequestEvent::EVENT_NAME);
 
-        $emailManagerService->toCustomerAccessBackend();
+        $budget = new Budget();
+        $budget->getUser($user);
+
+        $em->persist($budget);
+        $em->flush();
+
+
+
+
+        // $emailManagerService->toCustomerAccessBackend($budget);
 
 
 
