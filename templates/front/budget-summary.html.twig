@@ -12,13 +12,44 @@
             <div class="col-12">
                 <h2 class="text-center">{{'landing.front.budgetsummary.titlesection'|trans}}</h2>
             </div>
-
-            <div class="row">
-                <div class="col">
-                    dtata
-                </div>
-            </div>
         </div>
 
+        <div class="row">
+            <div class="col-8 mx-auto">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">{{'landing.front.budgetsummary.name'|trans}}</th>
+                            <th scope="col">{{'landing.front.budgetsummary.description'|trans}}</th>
+                            <th scope="col">{{'landing.front.budgetsummary.price'|trans}}</th>
+                        </tr>
+                    </thead>
 
-    {% endblock %}
+                    <tbody>
+
+                        <tr>
+                            <th>{{budget.product.name}}</th>
+                            <th>{{budget.product.description}}</th>
+                            <th>{{budget.product.price}}</th>
+                        </tr>
+
+                        {% for productCharacteristic in budget.productCharacteristics %}
+                            <tr>
+                                <td>{{productCharacteristic.name}}</td>
+                                <td>{{productCharacteristic.description}}</td>
+                                <td>{{productCharacteristic.price}}</td>
+                            </tr>
+                        {% endfor %}
+
+                        <tr>
+                            <td colspan="2">Total</td>
+                            <td>{{totalPrice}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

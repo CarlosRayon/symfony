@@ -2,19 +2,36 @@
 
 namespace App\Service;
 
-use phpDocumentor\Reflection\Types\Boolean;
-use Symfony\Component\Mailer\MailerInterface;
+use Twig\Environment;
+use App\Entity\Budget;
 use Symfony\Component\Mime\Email;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
+use phpDocumentor\Reflection\Types\Boolean;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 
 class EmailManagerService
 {
 
     private $mailer;
+    private $budgetManagerService;
+    private $router;
+    private $twig;
+    private $params;
 
-    public function __construct(MailerInterface $mailer)
-    {
+    public function __construct(
+        MailerInterface $mailer,
+        BudgetManagerService $budgetManagerService,
+        UrlGeneratorInterface $router,
+        Environment $twig,
+        ParameterBagInterface $params
+    ) {
         $this->mailer = $mailer;
+        $this->budgetManagerService = $budgetManagerService;
+        $this->router = $router;
+        $this->twig = $twig;
+        $this->params = $params;
     }
 
     /**
@@ -23,14 +40,20 @@ class EmailManagerService
      * @param Budget $budget
      * @return boolean
      */
-    public function toCustomerAccessBackend(): bool
+    public function toCustomerAccessBackend(Budget $budget): bool
     {
 
+        $totalPrice = $this->budgetManagerService->calculateTotalPrice($budget);
         $email = (new TemplatedEmail())
             ->from('proyectofinal@trainingit.com')
             ->to('crayon@alares.es')
-            ->subject('toCustomerAccessBackend')
-           ->htmlTemplate('emails/toCustomerAccessBackend.html.twig');
+            ->subject('Presupuesto para validar')
+            ->htmlTemplate('emails/toCustomerAccessBackend.html.twig')
+            ->context([
+                'budget' => $budget,
+                'totalPrice' => $totalPrice,
+                'callToActionHref' => $this->router->generate('app_login', ['token' => $budget->getUser()->getAccessToken()], UrlGeneratorInterface::ABSOLUTE_URL),
+            ]);
 
         $this->mailer->send($email);
 

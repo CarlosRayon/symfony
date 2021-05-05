@@ -15,6 +15,9 @@ landing:
         budgetsummary:
                 titleweb: 'Budget summary'
                 titlesection: 'Budgets summary'
+                name: 'Name'
+                description: 'Description'
+                price: 'Price'
 
     back:
         header:

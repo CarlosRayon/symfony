@@ -34,6 +34,11 @@ class Budget
      */
     private $productCharacteristics;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Product::class, inversedBy="budget")
+     */
+    private $product;
+
     public function __construct()
     {
         $this->productCharacteristics = new ArrayCollection();
@@ -88,6 +93,18 @@ class Budget
     public function removeProductCharacteristic(ProductCharacteristics $productCharacteristic): self
     {
         $this->productCharacteristics->removeElement($productCharacteristic);
+
+        return $this;
+    }
+
+    public function getProduct(): ?Product
+    {
+        return $this->product;
+    }
+
+    public function setProduct(?Product $product): self
+    {
+        $this->product = $product;
 
         return $this;
     }

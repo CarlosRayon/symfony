@@ -44,9 +44,15 @@ class Product
      */
     private $ProductCharacteristics;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Budget::class, mappedBy="product")
+     */
+    private $budget;
+
     public function __construct()
     {
         $this->ProductCharacteristics = new ArrayCollection();
+        $this->budget = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -126,6 +132,36 @@ class Product
             // set the owning side to null (unless already changed)
             if ($productCharacteristic->getProduct() === $this) {
                 $productCharacteristic->setProduct(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Budget[]
+     */
+    public function getBudget(): Collection
+    {
+        return $this->budget;
+    }
+
+    public function addBudget(Budget $budget): self
+    {
+        if (!$this->budget->contains($budget)) {
+            $this->budget[] = $budget;
+            $budget->setProduct($this);
+        }
+
+        return $this;
+    }
+
+    public function removeBudget(Budget $budget): self
+    {
+        if ($this->budget->removeElement($budget)) {
+            // set the owning side to null (unless already changed)
+            if ($budget->getProduct() === $this) {
+                $budget->setProduct(null);
             }
         }
 

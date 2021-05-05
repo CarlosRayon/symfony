@@ -2,6 +2,8 @@
 
 namespace App\Service;
 
+use App\Entity\Budget;
+
 class BudgetManagerService
 {
 
@@ -11,10 +13,15 @@ class BudgetManagerService
      * @param Budget $budget
      * @return float
      */
-    public function calculateTotalPrice(): float
+    public function calculateTotalPrice(Budget $budget): float
     {
 
-        return 0.0;
+        $totalPrice = $budget->getProduct()->getPrice();
+
+        foreach ($budget->getProductCharacteristics() as $characteristics) {
+           $totalPrice += $characteristics->getPrice();
+        }
+        return $totalPrice;
     }
 
     /**

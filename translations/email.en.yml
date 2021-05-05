@@ -1,0 +1,8 @@
+toCustomerAccessBackend:
+    hello: 'Hello'
+    intro: 'The budget request has been sent to validate'
+    table:
+        name: 'Name'
+        description: 'Description'
+        price: 'Price'
+    calltoaction: 'Backend access'

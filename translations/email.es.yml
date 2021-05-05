@@ -1,0 +1,8 @@
+toCustomerAccessBackend:
+    hello: 'Hola'
+    intro: 'Se a enviado la solicitud de presupuesto para validar'
+    table:
+        name: 'Nombre'
+        description: 'Descripcion'
+        price: 'Precio'
+    calltoaction: 'Acceso al backend'

@@ -15,6 +15,9 @@ landing:
         budgetsummary:
                 titleweb: 'Resumen de presupuesto'
                 titlesection: 'Resumen de presupuesto'
+                name: 'Nombre'
+                description: 'Descripcion'
+                price: 'Precio'
     back:
         header:
             title: 'Proveedor de servicios | Backend'
