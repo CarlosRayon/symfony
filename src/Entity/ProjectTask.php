@@ -32,6 +32,11 @@ class ProjectTask
      */
     private $places = [];
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Project::class, inversedBy="projectTask")
+     */
+    private $project;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -69,6 +74,18 @@ class ProjectTask
     public function setPlaces(?array $places): self
     {
         $this->places = $places;
+
+        return $this;
+    }
+
+    public function getProject(): ?Project
+    {
+        return $this->project;
+    }
+
+    public function setProject(?Project $project): self
+    {
+        $this->project = $project;
 
         return $this;
     }

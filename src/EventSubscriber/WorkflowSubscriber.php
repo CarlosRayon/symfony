@@ -5,6 +5,8 @@ namespace App\EventSubscriber;
 use App\Service\EmailManagerService;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Workflow\Event\Event;
+use Symfony\Component\Workflow\Event\GuardEvent;
+
 
 class WorkflowSubscriber implements EventSubscriberInterface
 {
@@ -20,6 +22,7 @@ class WorkflowSubscriber implements EventSubscriberInterface
         return [
             'workflow.project.completed' => 'onProjectStatusChange',
             'workflow.project_task.completed' => 'onProjectTaskFinished',
+            'workflow.project.guard.to_finished' => 'guardFinished'
         ];
     }
 
@@ -35,6 +38,17 @@ class WorkflowSubscriber implements EventSubscriberInterface
         if ($event->getTransition()->getName() == "to_finished") {
             $projectTask = $event->getSubject();
             $this->emailManagerService->toProjectManagerNoticeEndTask($projectTask);
+        }
+    }
+
+    public function guardFinished(GuardEvent $event)
+    {
+        $project = $event->getSubject();
+
+        foreach ($project->getProjectTask() as $projectTask) {
+            if (!in_array('finished', $projectTask->getPlaces())) {
+                $event->setBlocked(true);
+            }
         }
     }
 }
