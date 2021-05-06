@@ -1,0 +1,64 @@
+framework:
+    workflows:
+        budget:
+            type: 'workflow'
+            marking_store:
+                type: 'method'
+                property: 'places'
+            supports:
+                - App\Entity\Budget
+            places:
+                - pending
+                - approved
+                - rejected
+            initial_marking: pending
+            transitions:
+                to_rejected:
+                    from: pending
+                    to: rejected
+                to_approved:
+                    from: pending
+                    to: approved
+
+        project:
+            type: 'workflow'
+            marking_store:
+                type: 'method'
+                property: 'places'
+            supports:
+                - App\Entity\Project
+            places:
+                - approved
+                - in_progress
+                - finished
+            initial_marking: approved
+            transitions:
+                to_in_progress:
+                    from: approved
+                    to: in_progress
+                to_finished:
+                    from: in_progress
+                    to: finished
+
+        project_task:
+            type: 'workflow'
+            marking_store:
+                type: 'method'
+                property: 'places'
+            supports:
+                - App\Entity\ProjectTask
+            places:
+                - unassigned
+                - assigned
+                - finished
+            initial_marking: unassigned
+            transitions:
+                to_assigned:
+                    from: unassigned
+                    to: assigned
+                to_finished:
+                    from: assigned
+                    to: finished
+
+
+

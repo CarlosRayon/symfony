@@ -39,6 +39,11 @@ class Budget
      */
     private $product;
 
+    /**
+     * @ORM\Column(type="json_array", nullable=true)
+     */
+    private $places = [];
+
     public function __construct()
     {
         $this->productCharacteristics = new ArrayCollection();
@@ -105,6 +110,18 @@ class Budget
     public function setProduct(?Product $product): self
     {
         $this->product = $product;
+
+        return $this;
+    }
+
+    public function getPlaces(): ?array
+    {
+        return $this->places;
+    }
+
+    public function setPlaces(?array $places): self
+    {
+        $this->places = $places;
 
         return $this;
     }
